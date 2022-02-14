@@ -13,12 +13,19 @@ export default async (
     try {
         const { method } = req;
 
+        const id = ""
+        const data = {
+            id: id
+        }
+
         switch (method) {
             case 'GET': 
 
             // Access to MongoDB and Classes data
             const { db } = await connect();
-            const response: any = await db.collection('classes').find().toArray();
+            const response: any = await db.collection('classes').findOne(
+                data
+            );
             res.status(200).json(response);
 
             break;
