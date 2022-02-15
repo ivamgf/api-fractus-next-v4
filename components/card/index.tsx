@@ -1,4 +1,5 @@
 import * as React from 'react'
+import styled from 'styled-components'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
@@ -17,7 +18,8 @@ type typeProps = {
     subTitle4: string,
     endpoint4: string,
     subTitle5: string,
-    endpoint5: string
+    endpoint5: string,
+    note: string
 }
 
 export default function BasicCard(props: typeProps) {
@@ -25,36 +27,100 @@ export default function BasicCard(props: typeProps) {
         <>
             <Card sx={{ minWidth: 275 }}>
                 <CardContent style={{ minHeight: '20em' }}>
-                    <Image
-                        src="/logo-fractus-cor.svg"
-                        alt="Logo Fractus"
-                        width={500}
-                        height={150}
-                    />
+                    <ImgContainer>
+                        <Image
+                            src="/logo-fractus-cor.svg"
+                            alt="Logo Fractus"
+                            width={700}
+                            height={150}
+                        />
+                    </ImgContainer>                    
 
                     <Typography
-                        variant="body2"
-                        style={{ textAlign: 'center', marginTop: '4em' }}
+                        variant="h2"
+                        style={{ textAlign: 'center', marginTop: '0.5em' }}
                     >
-                        <h1>{props.title}</h1>
-                        <h2>{props.description}</h2>
+                        {props.title}
+                    </Typography>
+                    <Typography
+                        variant="body2"
+                        style={{ textAlign: 'center', marginTop: '1em' }}
+                    >
+                        {props.description}
                     </Typography>
 
                     <Typography
-                        variant="body2"
-                        style={{ textAlign: 'left', marginTop: '4em' }}
+                        variant="h5"
+                        style={{ textAlign: 'left', marginTop: '2em' }}
                     >                        
-                        <h3>{props.subTitle1}</h3>
-                        <p>{props.endpoint1}</p>
-                        <h3>{props.subTitle2}</h3>
-                        <p>{props.endpoint2}</p>
-                        <h3>{props.subTitle3}</h3>
-                        <p>{props.endpoint3}</p>
-                        <h3>{props.subTitle4}</h3>
-                        <p>{props.endpoint4}</p>
-                        <h3>{props.subTitle5}</h3>
-                        <p>{props.endpoint5}</p>
+                        {props.subTitle1}
 
+                    </Typography>
+                    <Typography
+                        variant="body2"
+                        style={{ textAlign: 'left', marginTop: '1em' }}
+                    >                        
+                        {props.endpoint1}
+                    </Typography>
+                    <Typography
+                        variant="h5"
+                        style={{ textAlign: 'left', marginTop: '1em' }}
+                    >                        
+                       {props.subTitle2}
+                    </Typography>
+                    <Typography
+                        variant="body2"
+                        style={{ textAlign: 'left', marginTop: '1em' }}
+                    >                        
+                        {props.endpoint2}
+                    </Typography>
+                    <Typography
+                        variant="h5"
+                        style={{ textAlign: 'left', marginTop: '1em' }}
+                    >                        
+                        {props.subTitle3}
+                    </Typography>
+                    <Typography
+                        variant="body2"
+                        style={{ textAlign: 'left', marginTop: '1em', color: "#44AC34" }}
+                    >                        
+                       {props.endpoint3}
+                    </Typography>
+                    <Typography
+                        variant="h5"
+                        style={{ textAlign: 'left', marginTop: '1em' }}
+                    >                        
+                        {props.subTitle4}
+                    </Typography>
+                    <Typography
+                        variant="body2"
+                        style={{ textAlign: 'left', marginTop: '1em', color: "#FDD400" }}
+                    >                        
+                        {props.endpoint4}
+                    </Typography>
+                    <Typography
+                        variant="h5"
+                        style={{ textAlign: 'left', marginTop: '1em' }}
+                    >                        
+                        {props.subTitle5}
+                    </Typography>
+                    <Typography
+                        variant="body2"
+                        style={{ textAlign: 'left', marginTop: '1em', color: "#E52024" }}
+                    >                        
+                        {props.endpoint5}
+                    </Typography>
+                    <Typography
+                        variant="h6"
+                        style={{ textAlign: 'left', marginTop: '1em' }}
+                    >                        
+                        Nota:
+                    </Typography>
+                    <Typography
+                        variant="body2"
+                        style={{ textAlign: 'left', marginTop: '1em' }}
+                    >                        
+                        {props.note}
                     </Typography>
                 </CardContent>
                 <CardActions></CardActions>
@@ -62,3 +128,9 @@ export default function BasicCard(props: typeProps) {
         </>
     )
 }
+
+const ImgContainer = styled.div`
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+`
