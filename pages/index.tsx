@@ -8,6 +8,7 @@ import Link from 'next/link'
 
 const Home: NextPage = () => {
   const docsRoute = '/docs/'
+  const contactsRoute = '/contacts/'
 
   return (
     <div className={styles.container}>
@@ -47,10 +48,13 @@ const Home: NextPage = () => {
             </div>            
           </Link>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Contatos &rarr;</h2>
-            <p>Entre em contato para tirar dúvidas, reclamações ou elogios!</p>
-          </a>
+          <Link href={contactsRoute}>
+            <div className={styles.card}>
+              <h2>Contatos &rarr;</h2>
+              <p>Entre em contato para tirar dúvidas, reclamações ou elogios!</p>
+            </div>
+          </Link>
+          
           
         </div>
       </main>

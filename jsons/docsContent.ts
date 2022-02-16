@@ -12,7 +12,7 @@ const content = {
     endpoint4: "/api/updateClasses/{id}",
     subTitle5: "Remover aula",
     endpoint5: "api/remove/{id}",
-    note: `Para acessar a api é necessário uma autenticação. Favor entrar em contato com os administradores do sistema receber uma autenticação.`
+    note: `Para acessar a api é necessário uma autenticação. Favor entrar em contato com os administradores do sistema para receber uma autenticação.`
 }
 
 export default content;
