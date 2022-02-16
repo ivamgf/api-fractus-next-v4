@@ -3,6 +3,8 @@ import styled from 'styled-components'
 
 import BasicCard from '../../components/card'
 import content from '../../jsons/docsContent'
+import Link from 'next/link'
+import { Button } from '@mui/material'
 
 export default function Docs() {
 
@@ -23,6 +25,9 @@ export default function Docs() {
                 endpoint5={content.endpoint5}
                 note={content.note}
             />
+            <Link href="/">
+                <Button style={{marginTop: '1em'}} variant="contained">Voltar</Button>
+            </Link>
        </Main>
     )
 }

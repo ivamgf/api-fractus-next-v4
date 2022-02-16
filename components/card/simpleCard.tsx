@@ -10,15 +10,7 @@ type typeProps = {
     title: string,
     description: string,
     subTitle1: string,
-    endpoint1: string,
-    subTitle2: string,
-    endpoint2: string,
-    subTitle3: string,
-    endpoint3: string,
-    subTitle4: string,
-    endpoint4: string,
-    subTitle5: string,
-    endpoint5: string,
+    contact1: string,
     note: string
 }
 
@@ -59,60 +51,8 @@ export default function BasicCard(props: typeProps) {
                         variant="body2"
                         style={{ textAlign: 'left', marginTop: '1em' }}
                     >                        
-                        {props.endpoint1}
-                    </Typography>
-                   
-                    <Typography
-                        variant="h5"
-                        style={{ textAlign: 'left', marginTop: '1em' }}
-                    >                        
-                       {props.subTitle2}
-                    </Typography>
-                    <Typography
-                        variant="body2"
-                        style={{ textAlign: 'left', marginTop: '1em' }}
-                    >                        
-                        {props.endpoint2}
-                    </Typography>
-                    <hr />
-                    <Typography
-                        variant="h5"
-                        style={{ textAlign: 'left', marginTop: '1em' }}
-                    >                        
-                        {props.subTitle3}
-                    </Typography>
-                    <Typography
-                        variant="body2"
-                        style={{ textAlign: 'left', marginTop: '1em', color: "#44AC34" }}
-                    >                        
-                       {props.endpoint3}
-                    </Typography>
-                    <hr />
-                    <Typography
-                        variant="h5"
-                        style={{ textAlign: 'left', marginTop: '1em' }}
-                    >                        
-                        {props.subTitle4}
-                    </Typography>
-                    <Typography
-                        variant="body2"
-                        style={{ textAlign: 'left', marginTop: '1em', color: "#FDD400" }}
-                    >                        
-                        {props.endpoint4}
-                    </Typography>
-                    <hr />
-                    <Typography
-                        variant="h5"
-                        style={{ textAlign: 'left', marginTop: '1em' }}
-                    >                        
-                        {props.subTitle5}
-                    </Typography>
-                    <Typography
-                        variant="body2"
-                        style={{ textAlign: 'left', marginTop: '1em', color: "#E52024" }}
-                    >                        
-                        {props.endpoint5}
-                    </Typography>
+                        {props.contact1}
+                    </Typography>                   
                     <hr />
                     <Typography
                         variant="h6"

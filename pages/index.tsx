@@ -4,6 +4,8 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
+
+
 const Home: NextPage = () => {
   const docsRoute = '/docs/'
 
@@ -16,6 +18,10 @@ const Home: NextPage = () => {
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
       </Head>
 
@@ -50,17 +56,16 @@ const Home: NextPage = () => {
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+                Powered by{' '}
+                <span className={styles.logo}>
+                    <Image
+                        src="/logo.png"
+                        alt="Orkneytech Logo"
+                        width={16}
+                        height={16}
+                    />
+                </span>
+            </footer>
     </div>
   )
 }
