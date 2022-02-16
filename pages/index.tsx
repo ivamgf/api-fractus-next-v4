@@ -4,8 +4,6 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
-
-
 const Home: NextPage = () => {
   const docsRoute = '/docs/'
   const contactsRoute = '/contacts/'
@@ -60,16 +58,16 @@ const Home: NextPage = () => {
       </main>
 
       <footer className={styles.footer}>
-          Powered by{' '}
-          <span className={styles.logo}>
-              <Image
-                  src="/logo.png"
-                  alt="Orkneytech Logo"
-                  width={16}
-                  height={16}
-              />
-          </span>
-      </footer>
+            Powered by{' '}
+            <span className={styles.logo}>
+                <Image
+                    src="/logo.png"
+                    alt="Orkneytech Logo"
+                    width={16}
+                    height={16}
+                />
+            </span>
+        </footer>
     </div>
   )
 }

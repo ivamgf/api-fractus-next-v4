@@ -10,22 +10,22 @@ export default async (
     req: NextApiRequest,
     res: NextApiResponse<ResponseType>
 ): Promise<void> => {
-
+    
     try {
         const { method } = req;
-
-        const cod = "6207fae1204e4a87c4ea5ebf"
-        const id = {
-            "_id": cod
+        
+        const cod: any = req.query.id
+        const id: any = {
+            "_id": new ObjectId(`${cod}`)
         }
-         
+        console.log('id:', req.query)
         switch (method) {
             case 'GET': 
-
+            
             // Access to MongoDB and Classes data
             const { db } = await connect();
             const response: any = await db.collection('classes').findOne(
-                { "_id" : new ObjectId("6207fae1204e4a87c4ea5ebf") }
+                { "_id" : new ObjectId(`${cod}`) }
             );
             return res.status(200).json(response);
 
