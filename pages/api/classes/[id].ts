@@ -1,3 +1,4 @@
+import { ObjectId } from 'mongodb';
 import type { NextApiRequest, NextApiResponse } from 'next'
 import  connect from '../../../utils/database'
 
@@ -13,20 +14,20 @@ export default async (
     try {
         const { method } = req;
 
-        const id = ""
-        const data = {
-            id: id
+        const cod = "6207fae1204e4a87c4ea5ebf"
+        const id = {
+            "_id": cod
         }
-
+         
         switch (method) {
             case 'GET': 
 
             // Access to MongoDB and Classes data
             const { db } = await connect();
             const response: any = await db.collection('classes').findOne(
-                data
+                { "_id" : new ObjectId("6207fae1204e4a87c4ea5ebf") }
             );
-            res.status(200).json(response);
+            return res.status(200).json(response);
 
             break;
             default:
