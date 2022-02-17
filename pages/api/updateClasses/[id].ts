@@ -14,21 +14,9 @@ export default async (
     try {
         const { method } = req;
         
-        const scene = 2;
-        const numberClass = 5;
-        const description = "Aula 5";
-        const content = `Prmeira cena da 5º aula.`;
-        const image = "http://app-fractus.orkneytech.com.br/assets/images/05-pares-e-10-pedacinhos-de-chocolate.png";
-        
-        const data = {
-            "scene": scene,
-            "class": numberClass,
-            "description": description,
-            "content": content,
-            "image": image
-        }
-
         const cod: any = req.query.id
+        const data: any = req.body
+
         switch (method) {
             case 'PUT': 
             
@@ -37,7 +25,7 @@ export default async (
             const response: any = await db.collection('classes').updateOne(
                 { "_id" : new ObjectId(`${cod}`) }, 
                 { $set: data }, 
-                {upsert: true}
+                { upsert: true }
             );
             return res.status(200).json(response);
 
