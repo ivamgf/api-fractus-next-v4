@@ -5,6 +5,7 @@ import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import Image from 'next/image'
+import Link from 'next/link'
 
 type typeProps = {
     title: string,
@@ -19,6 +20,8 @@ type typeProps = {
     endpoint4: string,
     subTitle5: string,
     endpoint5: string,
+    subTitle6: string,
+    manifest: string,
     note: string
 }
 
@@ -112,6 +115,23 @@ export default function BasicCard(props: typeProps) {
                         style={{ textAlign: 'left', marginTop: '1em', color: "#E52024" }}
                     >                        
                         {props.endpoint5}
+                    </Typography>
+                    <hr />
+                    <Typography
+                        variant="h5"
+                        style={{ textAlign: 'left', marginTop: '1em' }}
+                    >                        
+                        {props.subTitle6}
+                    </Typography>
+                    <Typography
+                        variant="body2"
+                        style={{ textAlign: 'left', marginTop: '1em', color: "#44AC34" }}
+                    >                        
+                        <Link 
+                            href={props.manifest}
+                        >
+                            {props.manifest}
+                        </Link>
                     </Typography>
                     <hr />
                     <Typography
