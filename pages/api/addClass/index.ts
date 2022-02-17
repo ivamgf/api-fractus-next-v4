@@ -13,19 +13,7 @@ export default async (
     try {
         const { method } = req;
 
-        const scene = 1;
-        const numberClass = 4;
-        const description = "Aula extra";
-        const content = `Aula extra`;
-        const image = "http://app-fractus.orkneytech.com.br/assets/images/professora.png";
-        
-        const data = {
-            "scene": scene,
-            "class": numberClass,
-            "description": description,
-            "content": content,
-            "image": image
-        }
+        const data: any = req.body
 
         switch (method) {
             case 'POST': 
