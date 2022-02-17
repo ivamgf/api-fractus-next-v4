@@ -12,6 +12,8 @@ const content = {
     endpoint4: "/api/updateClasses/{id}",
     subTitle5: "Remover aula",
     endpoint5: "api/remove/{id}",
+    subTitle6: "Metadados Ontologia OBBA",
+    manifest: "https://api-fractus.orkneytech.com.br/metadata/manifest.xml",
     note: `Para acessar a api é necessário uma autenticação. Favor entrar em contato com os administradores do sistema para receber uma autenticação.`
 }
 
