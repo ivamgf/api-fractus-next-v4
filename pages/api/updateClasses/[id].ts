@@ -1,3 +1,4 @@
+import { ObjectId } from 'mongodb';
 import type { NextApiRequest, NextApiResponse } from 'next'
 import  connect from '../../../utils/database'
 
@@ -9,25 +10,28 @@ export default async (
     req: NextApiRequest,
     res: NextApiResponse<ResponseType>
 ): Promise<void> => {
-
+    
     try {
         const { method } = req;
-
+        
+        const cod: any = req.query.id
         const data: any = req.body
 
         switch (method) {
-            case 'POST': 
-
+            case 'PUT': 
+            
             // Access to MongoDB and Classes data
             const { db } = await connect();
-            const response: any = await db.collection('classes').insertOne(
-                data
+            const response: any = await db.collection('classes').updateOne(
+                { "_id" : new ObjectId(`${cod}`) }, 
+                { $set: data }, 
+                { upsert: true }
             );
-            res.status(200).json(response);
+            return res.status(200).json(response);
 
             break;
             default:
-                res.setHeader('Allow', ['GET', 'POST']);
+                res.setHeader('Allow', ['GET', 'PUT']);
                 res.status(405).end(`Method ${method} Not Allowed!`);
         }
     } catch (err) {
