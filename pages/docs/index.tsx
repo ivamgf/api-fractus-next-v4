@@ -23,6 +23,8 @@ export default function Docs() {
                 endpoint4={content.endpoint4}
                 subTitle5={content.subTitle5}
                 endpoint5={content.endpoint5}
+                subTitle6={content.subTitle6}
+                manifest={content.manifest}
                 note={content.note}
             />
             <Link href="/">
