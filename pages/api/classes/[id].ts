@@ -15,10 +15,6 @@ export default async (
         const { method } = req;
         
         const cod: any = req.query.id
-        const id: any = {
-            "_id": new ObjectId(`${cod}`)
-        }
-        console.log('id:', req.query)
         switch (method) {
             case 'GET': 
             
