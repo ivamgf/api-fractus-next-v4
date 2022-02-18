@@ -6,6 +6,9 @@ import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import Image from 'next/image'
 import Link from 'next/link'
+import ColorChips from '../chip'
+import { Button } from '@mui/material'
+import Divider from '@mui/material/Divider';
 
 type typeProps = {
     title: string,
@@ -25,7 +28,11 @@ type typeProps = {
     note: string
 }
 
-export default function BasicCard(props: typeProps) {
+export default function BasicCard(props: typeProps) {    
+    const url = "https://api-fractus-next.herokuapp.com"
+    const endpoint = `${url}${props.endpoint1}`
+    const jsonRoute = '/metadata/'   
+
     return (
         <>
             <Card sx={{ minWidth: 275 }}>
@@ -51,20 +58,24 @@ export default function BasicCard(props: typeProps) {
                     >
                         {props.description}
                     </Typography>
-                    <hr />
+                    <Divider />
                     <Typography
                         variant="h5"
                         style={{ textAlign: 'left', marginTop: '1em' }}
                     >                        
                         {props.subTitle1}
                     </Typography>
+                    <ColorChips />
                     <Typography
                         variant="body2"
                         style={{ textAlign: 'left', marginTop: '1em' }}
                     >                        
-                        {props.endpoint1}
-                    </Typography>
-                   
+                        <Link 
+                            href={endpoint}
+                        >
+                            {props.endpoint1}
+                        </Link>
+                    </Typography>                   
                     <Typography
                         variant="h5"
                         style={{ textAlign: 'left', marginTop: '1em' }}
@@ -77,7 +88,7 @@ export default function BasicCard(props: typeProps) {
                     >                        
                         {props.endpoint2}
                     </Typography>
-                    <hr />
+                    <Divider />
                     <Typography
                         variant="h5"
                         style={{ textAlign: 'left', marginTop: '1em' }}
@@ -90,7 +101,7 @@ export default function BasicCard(props: typeProps) {
                     >                        
                        {props.endpoint3}
                     </Typography>
-                    <hr />
+                    <Divider />
                     <Typography
                         variant="h5"
                         style={{ textAlign: 'left', marginTop: '1em' }}
@@ -103,7 +114,7 @@ export default function BasicCard(props: typeProps) {
                     >                        
                         {props.endpoint4}
                     </Typography>
-                    <hr />
+                    <Divider />
                     <Typography
                         variant="h5"
                         style={{ textAlign: 'left', marginTop: '1em' }}
@@ -116,24 +127,29 @@ export default function BasicCard(props: typeProps) {
                     >                        
                         {props.endpoint5}
                     </Typography>
-                    <hr />
+                    <Divider />
                     <Typography
                         variant="h5"
                         style={{ textAlign: 'left', marginTop: '1em' }}
                     >                        
                         {props.subTitle6}
                     </Typography>
+                    <ColorChips />                    
                     <Typography
                         variant="body2"
                         style={{ textAlign: 'left', marginTop: '1em', color: "#44AC34" }}
-                    >                        
+                    >                                              
                         <Link 
                             href={props.manifest}
                         >
                             {props.manifest}
-                        </Link>
+                        </Link>                      
+                        
                     </Typography>
-                    <hr />
+                    <Link href={jsonRoute}>
+                        <Button variant="contained" style={{borderRadius: '3em', width: '3em', height: '2em', marginTop: '1em', marginBottom: '1em'}}>JSON</Button>
+                    </Link>
+                    <Divider />
                     <Typography
                         variant="h6"
                         style={{ textAlign: 'left', marginTop: '1em' }}
