@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import NextCors from 'nextjs-cors'
-import  connect from '../../../utils/database'
+import  connect from '../../../../utils/database'
 
 interface ResponseType {
     message: string;
@@ -11,13 +10,6 @@ export default async (
     res: NextApiResponse<ResponseType>
 ): Promise<void> => {
 
-    await NextCors(req, res, {
-        // Options
-        methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-        origin: '*',
-        optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-     })
-     
     try {
         const { method } = req;
 
@@ -26,7 +18,7 @@ export default async (
 
             // Access to MongoDB and Classes data
             const { db } = await connect();
-            const response: any = await db.collection('classes').find().toArray();
+            const response: any = await db.collection('users').find().toArray();
             res.status(200).json(response);
 
             break;
