@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import NextCors from 'nextjs-cors'
-import  connect from '../../../utils/database'
+import NextCors from 'nextjs-cors';
+import  connect from '../../../../utils/database'
 
 interface ResponseType {
     message: string;
@@ -26,7 +26,7 @@ export default async (
 
             // Access to MongoDB and Classes data
             const { db } = await connect();
-            const response: any = await db.collection('classes').find().toArray();
+            const response: any = await db.collection('users').find().toArray();
             res.status(200).json(response);
 
             break;

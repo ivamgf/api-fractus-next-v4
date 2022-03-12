@@ -1,10 +1,17 @@
 import React from 'react';
 import type { NextApiRequest, NextApiResponse } from 'next'
 import nodemailer from 'nodemailer';
-import logo from '../../../public/logo.png'
+import NextCors from 'nextjs-cors';
 
 export default function sendEmail(req: NextApiRequest, res: NextApiResponse) {
     // const data: any = req.body
+
+    NextCors(req, res, {
+        // Options
+        methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+        origin: '*',
+        optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+     })
 
     let transporter = nodemailer.createTransport({
         host: 'app-fractus.orkneytech.com.br',
@@ -12,6 +19,9 @@ export default function sendEmail(req: NextApiRequest, res: NextApiResponse) {
         auth: {
             user: process.env.USERMAIL,
             pass: process.env.PASSMAIL
+        },
+        headers: {
+            "Access-Control-Allow-Origin": "*"
         }
     })
 
@@ -32,6 +42,7 @@ export default function sendEmail(req: NextApiRequest, res: NextApiResponse) {
                 <b>Mensagem:</b><p>${req.body.message}</p>
                 <br />
                 <span>Powered by OrkneyTech</span>`, // html body
+        
     }).then((response) => { res.send(response) })
       .catch((error) => { res.send(error) })    
 
