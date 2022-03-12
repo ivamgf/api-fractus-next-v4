@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import NextCors from 'nextjs-cors';
 import  connect from '../../../utils/database'
 
 interface ResponseType {
@@ -10,6 +11,13 @@ export default async (
     res: NextApiResponse<ResponseType>
 ): Promise<void> => {
 
+    await NextCors(req, res, {
+        // Options
+        methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+        origin: '*',
+        optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+     })
+     
     try {
         const { method } = req;
 
