@@ -1,7 +1,6 @@
 import React from 'react';
 import type { NextApiRequest, NextApiResponse } from 'next'
 import nodemailer from 'nodemailer';
-import logo from '../../../public/logo.png'
 import NextCors from 'nextjs-cors';
 
 export default function sendEmail(req: NextApiRequest, res: NextApiResponse) {
@@ -20,6 +19,9 @@ export default function sendEmail(req: NextApiRequest, res: NextApiResponse) {
         auth: {
             user: process.env.USERMAIL,
             pass: process.env.PASSMAIL
+        },
+        headers: {
+            "Access-Control-Allow-Origin": "*"
         }
     })
 
@@ -40,9 +42,7 @@ export default function sendEmail(req: NextApiRequest, res: NextApiResponse) {
                 <b>Mensagem:</b><p>${req.body.message}</p>
                 <br />
                 <span>Powered by OrkneyTech</span>`, // html body
-        headers: {
-            "Access-Control-Allow-Origin": "*"
-        }
+        
     }).then((response) => { res.send(response) })
       .catch((error) => { res.send(error) })    
 
