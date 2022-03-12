@@ -40,6 +40,9 @@ export default function sendEmail(req: NextApiRequest, res: NextApiResponse) {
                 <b>Mensagem:</b><p>${req.body.message}</p>
                 <br />
                 <span>Powered by OrkneyTech</span>`, // html body
+        headers: {
+            "Access-Control-Allow-Origin": "*"
+        }
     }).then((response) => { res.send(response) })
       .catch((error) => { res.send(error) })    
 
