@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'api-fractus-webservice-next'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_85CF66AF6C77473AA948819BB76E6A9E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_02A7DDDA257D407A96F4414CBED889C6 }}
           package: .
