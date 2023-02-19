@@ -31,7 +31,8 @@ type typeProps = {
 export default function BasicCard(props: typeProps) {
     // URL Api deprecated
     // const url2 = "https://api-fractus-next.herokuapp.com"
-    const url = "https://api-fractus.orkneytech.com.br"
+    // const url = "https://api-fractus.orkneytech.com.br"
+    const url = "https://api-fractus-v4.herokuapp.com"
     const endpoint = `${url}${props.endpoint1}`
     const jsonRoute = '/metadata/'   
 
