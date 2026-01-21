@@ -8,6 +8,10 @@
     "lint": "next lint",
     "test": "jest"
   },
+  "engines": {
+    "node": "22.x",
+    "npm": "20.x"
+  },
   "resolutions": {
     "styled-components": "^5"
   },
