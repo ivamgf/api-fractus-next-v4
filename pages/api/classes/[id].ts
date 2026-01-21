@@ -1,44 +1,54 @@
-import { ObjectId } from 'mongodb';
+import { ObjectId } from 'mongodb'
 import type { NextApiRequest, NextApiResponse } from 'next'
-import  connect from '../../../utils/database'
 import NextCors from 'nextjs-cors'
+import connect from '../../../utils/database'
 
-interface ResponseType {
-    message: string;
-}
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  // ✅ CORS primeiro
+  await NextCors(req, res, {
+    methods: ['GET', 'OPTIONS'],
+    origin: '*',
+    optionsSuccessStatus: 200,
+  })
 
-export default async (
-    req: NextApiRequest,
-    res: NextApiResponse<ResponseType>
-): Promise<void> => {
-    
-    await NextCors(req, res, {
-        // Options
-        methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-        origin: '*',
-        optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-     })
-     
-    try {
-        const { method } = req;
-        
-        const cod: any = req.query.id
-        switch (method) {
-            case 'GET': 
-            
-            // Access to MongoDB and Classes data
-            const { db } = await connect();
-            const response: any = await db.collection('classes').findOne(
-                { "_id" : new ObjectId(`${cod}`) }
-            );
-            return res.status(200).json(response);
+  // ✅ Preflight
+  if (req.method === 'OPTIONS') {
+    res.status(200).end()
+    return
+  }
 
-            break;
-            default:
-                res.setHeader('Allow', ['GET']);
-                res.status(405).end(`Method ${method} Not Allowed!`);
-        }
-    } catch (err) {
-        res.status(500).json({ message: 'Internal server error!' })
+  try {
+    const { id } = req.query
+
+    // 🔐 Validação forte
+    if (!id || typeof id !== 'string' || !ObjectId.isValid(id)) {
+      res.status(400).json({ message: 'Invalid id' })
+      return
     }
+
+    if (req.method === 'GET') {
+      const { db } = await connect()
+
+      const classe = await db
+        .collection('classes')
+        .findOne({ _id: new ObjectId(id) })
+
+      if (!classe) {
+        res.status(404).json({ message: 'Class not found' })
+        return
+      }
+
+      res.status(200).json(classe)
+      return
+    }
+
+    res.setHeader('Allow', ['GET'])
+    res.status(405).json({ message: 'Method Not Allowed' })
+  } catch (error) {
+    console.error('API /classes/[id] error:', error)
+    res.status(500).json({ message: 'Internal server error' })
+  }
 }
