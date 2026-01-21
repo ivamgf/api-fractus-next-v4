@@ -33,7 +33,7 @@ export default async (
             );
             return res.status(200).json(response);
 
-            break;
+            // break;
             default:
                 res.setHeader('Allow', ['GET']);
                 res.status(405).end(`Method ${method} Not Allowed!`);
