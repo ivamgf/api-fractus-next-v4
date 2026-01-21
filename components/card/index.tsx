@@ -32,7 +32,7 @@ export default function BasicCard(props: typeProps) {
     // URL Api deprecated
     // const url2 = "https://api-fractus-next.herokuapp.com"
     // const url = "https://api-fractus.orkneytech.com.br"
-    const url = "https://api-fractus-v4-653b078087a9.herokuapp.com/"
+    const url = "https://api-fractus-next-v4-9ab380a16ec1.herokuapp.com/"
     const endpoint = `${url}${props.endpoint1}`
     const jsonRoute = '/metadata/'   
 
