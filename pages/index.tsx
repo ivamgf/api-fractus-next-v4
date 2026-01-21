@@ -62,7 +62,7 @@ const Home: NextPage = () => {
           <span className={styles.logo}>
               <Image
                   src="/logo.png"
-                  alt="Orkneytech Logomarca"
+                  alt="Orkneytech Logo"
                   width={16}
                   height={16}
               />
