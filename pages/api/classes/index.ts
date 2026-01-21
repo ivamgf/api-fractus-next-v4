@@ -18,6 +18,12 @@ export default async (
         optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
      })
 
+    // Responder OPTIONS imediatamente
+        if (req.method === 'OPTIONS') {
+            res.status(200).end()
+            return
+        }
+
     try {
         const { method } = req;
 
