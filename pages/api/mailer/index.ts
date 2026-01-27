@@ -14,7 +14,7 @@ export default function sendEmail(req: NextApiRequest, res: NextApiResponse) {
      })
 
     let transporter = nodemailer.createTransport({
-        host: 'app-fractus.orkneytech.com.br',
+        host: 'https://app-fractus-v2-f28bf520b1b4.herokuapp.com',
         port: 465,
         auth: {
             user: process.env.USERMAIL,
